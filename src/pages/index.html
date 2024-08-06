@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link href="assets/styles/tailwind.css" rel="stylesheet">
+</head>
+<body class="bg-gray-900 text-white">
+
+    <div class="flex h-screen">
+        <!-- Include Sidebar -->
+        <div>
+            <!-- Include Sidebar component -->
+            <?php include('../components/Sidebar.html'); ?>
+        </div>
+
+        <!-- Content -->
+        <div class="flex-1 flex flex-col">
+            <!-- Include Header -->
+            <?php include('../components/Header.html'); ?>
+
+            <main class="flex-1 p-6">
+                <h2 class="text-xl font-semibold mb-4">Welcome to the Dashboard</h2>
+                <p>Here you can add your main content.</p>
+            </main>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
