@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
     console.log('carregado')
-    fetch('../components/Sidebar.html')
+    fetch('../../components/Sidebar.html')
         .then(response => {
             if (!response.ok) {
                 throw new Error(`Network response was not ok: ${response.statusText}`);
@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", function () {
         })
         .catch(error => console.error('Error loading Sidebar:', error));
 
-    fetch('../components/Header.html')
+    fetch('../../components/Header.html')
         .then(response => {
             if (!response.ok) {
                 throw new Error(`Network response was not ok: ${response.statusText}`);
@@ -67,7 +67,7 @@ document.getElementById('copy-btn').addEventListener('click', function() {
         .then(() => {
             // Show success message
             copyMessage.classList.remove('hidden');
-            copyMessage.textContent = "Copied to clipboard!";
+            copyMessage.textContent = "Copiado para Área de Transferência!";
 
             // Hide the message after 2 seconds
             setTimeout(() => {
