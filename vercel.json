@@ -1,7 +1,36 @@
 {
-    "rewrites": [
-      { "source": "/cpf-cnpj", "destination": "/src/pages/cpfgen.html" },
-      { "source": "/home", "destination": "/index.html" }
+    "version": 2,
+    "builds": [
+      {
+        "src": "src/pages/**/*.html",
+        "use": "@vercel/static"
+      },
+      {
+        "src": "src/js/**/*.js",
+        "use": "@vercel/static"
+      }
+    ],
+    "routes": [
+      {
+        "src": "/components/(.*)",
+        "dest": "/components/$1"
+      },
+      {
+        "src": "/src/pages/(.*)",
+        "dest": "/src/pages/$1"
+      },
+      {
+        "src": "/cpf-cnpj",
+        "dest": "/src/pages/cpfgen.html"
+      },
+      {
+        "src": "/home",
+        "dest": "/index.html"
+      },
+      {
+        "src": "/(.*)",
+        "dest": "/src/pages/$1"
+      }
     ]
   }
   
