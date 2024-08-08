@@ -36,8 +36,8 @@ document.addEventListener("DOMContentLoaded", function () {
             const sidebar = document.getElementById('sidebar');
 
             if (menuBtn && sidebar) {
-                menuBtn.addEventListener('click', () => {
-                    sidebar.classList.toggle('hidden');
+                btn.addEventListener('click', () => {
+                    sidebar.classList.toggle('-translate-x-full');
                 });
             } else {
                 console.error('Menu button or sidebar element not found');
@@ -47,47 +47,47 @@ document.addEventListener("DOMContentLoaded", function () {
         .catch(error => console.error('Error loading Header:', error));
 
 
-        document.getElementById('cpf-btn').addEventListener('click', function () {
-            const resultField = document.getElementById('result');
-            const format = document.getElementById('format-checkbox').checked;
-            resultField.value = gerarCPF(format);
-        });
-        
-        document.getElementById('cnpj-btn').addEventListener('click', function () {
-            const resultField = document.getElementById('result');
-            const format = document.getElementById('format-checkbox').checked;
-            resultField.value = gerarCNPJ(format);
-        });
-        
-        document.getElementById('copy-btn').addEventListener('click', function () {
-            const resultField = document.getElementById('result');
-            const copyMessage = document.getElementById('copy-message');
-        
-            resultField.select();
-            resultField.setSelectionRange(0, 99999); // For mobile devices
-        
-            navigator.clipboard.writeText(resultField.value)
-                .then(() => {
-                    // Show success message
-                    copyMessage.classList.remove('hidden');
-                    copyMessage.textContent = "Copiado para Área de Transferência!";
-        
-                    // Hide the message after 2 seconds
-                    setTimeout(() => {
-                        copyMessage.classList.add('hidden');
-                    }, 2000);
-                })
-                .catch(err => {
-                    console.error("Failed to copy: ", err);
-                    copyMessage.classList.remove('hidden');
-                    copyMessage.textContent = "Failed to copy!";
-        
-                    setTimeout(() => {
-                        copyMessage.classList.add('hidden');
-                    }, 2000);
-                });
-        });
-        
+    document.getElementById('cpf-btn').addEventListener('click', function () {
+        const resultField = document.getElementById('result');
+        const format = document.getElementById('format-checkbox').checked;
+        resultField.value = gerarCPF(format);
+    });
+
+    document.getElementById('cnpj-btn').addEventListener('click', function () {
+        const resultField = document.getElementById('result');
+        const format = document.getElementById('format-checkbox').checked;
+        resultField.value = gerarCNPJ(format);
+    });
+
+    document.getElementById('copy-btn').addEventListener('click', function () {
+        const resultField = document.getElementById('result');
+        const copyMessage = document.getElementById('copy-message');
+
+        resultField.select();
+        resultField.setSelectionRange(0, 99999); // For mobile devices
+
+        navigator.clipboard.writeText(resultField.value)
+            .then(() => {
+                // Show success message
+                copyMessage.classList.remove('hidden');
+                copyMessage.textContent = "Copiado para Área de Transferência!";
+
+                // Hide the message after 2 seconds
+                setTimeout(() => {
+                    copyMessage.classList.add('hidden');
+                }, 2000);
+            })
+            .catch(err => {
+                console.error("Failed to copy: ", err);
+                copyMessage.classList.remove('hidden');
+                copyMessage.textContent = "Failed to copy!";
+
+                setTimeout(() => {
+                    copyMessage.classList.add('hidden');
+                }, 2000);
+            });
+    });
+
 });
 
 
