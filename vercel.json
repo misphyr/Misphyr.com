@@ -16,6 +16,10 @@
       {
         "src": "components/*.html",
         "use": "@vercel/static"
+      },
+      {
+        "src": "assets/styles/*.css",
+        "use": "@vercel/static"
       }
     ],
     "routes": [
