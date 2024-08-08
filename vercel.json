@@ -1,0 +1,7 @@
+{
+    "rewrites": [
+      { "source": "/cpf-cnpj", "destination": "/src/pages/cpfgen.html" },
+      { "source": "/home", "destination": "/index.html" }
+    ]
+  }
+  
