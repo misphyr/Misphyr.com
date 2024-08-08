@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
     console.log('DOM fully loaded and parsed');
-    
+
     fetch('/components/Sidebar.html')
         .then(response => {
             if (!response.ok) {
@@ -13,10 +13,10 @@ document.addEventListener("DOMContentLoaded", function () {
             if (sidebarContainer) {
                 sidebarContainer.innerHTML = data;
                 console.log('Sidebar loaded successfully');
-                
+
                 const btn = document.getElementById('sidebar-btn');
                 const sidebar = document.getElementById('sidebar');
-                
+
                 if (btn && sidebar) {
                     btn.addEventListener('click', () => {
                         sidebar.classList.toggle('-translate-x-full');
@@ -41,18 +41,21 @@ document.addEventListener("DOMContentLoaded", function () {
             const headerContainer = document.getElementById('header-container');
             if (headerContainer) {
                 headerContainer.innerHTML = data;
-                console.log('Header loaded successfully');
+                setTimeout(() => {
+                    const menuBtn = document.getElementById('menu-btn');
+                    const sidebar = document.getElementById('sidebar');
 
-                const menuBtn = document.getElementById('menu-btn');
-                const sidebar = document.getElementById('sidebar');
+                    if (!menuBtn) console.error('menuBtn not loaded')
 
-                if (menuBtn && sidebar) {
-                    menuBtn.addEventListener('click', () => {
-                        sidebar.classList.toggle('-translate-x-full');
-                    });
-                } else {
-                    console.error('Menu button or sidebar element not found');
-                }
+                    if (menuBtn && sidebar) {
+                        menuBtn.addEventListener('click', () => {
+                            sidebar.classList.toggle('-translate-x-full');
+                        });
+
+                    } else {
+                        console.error('Menu button or sidebar element not found');
+                    }
+                }, 0);
             } else {
                 console.error('Header container element not found');
             }
