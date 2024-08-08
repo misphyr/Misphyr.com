@@ -6,4 +6,9 @@
     input{
         @apply text-purple-500 bg-white rounded-lg px-2.5 py-1.5 
     }
+    
+    .hidden {
+        display: none;
+      }
+      
 }
